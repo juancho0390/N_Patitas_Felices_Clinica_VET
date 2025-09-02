@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patitas Felices | Clínica Veterinaria</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom Styles and Animations -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Animations for scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero slider animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .hero-slide-image {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .hero-slide-content > * {
+            animation: slideInUp 1s ease-out 0.5s backwards;
+        }
+        
+        /* Team gallery custom styles */
+        .team-gallery-item {
+            transition: width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            z-index: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23E5E7EB' fill-opacity='0.4'%3E%3Cpath d='M82.6 12.4c-1.6 0-3.1.6-4.2 1.8-1.1 1.1-1.8 2.6-1.8 4.2 0 1.6.6 3.1 1.8 4.2 1.2 1.2 2.6 1.8 4.2 1.8s3.1-.6 4.2-1.8c1.1-1.2 1.8-2.6 1.8-4.2 0-1.6-.6-3.1-1.8-4.2-1.1-1.2-2.6-1.8-4.2-1.8zm-29.6 16c-1.6 0-3.1.6-4.2 1.8-1.2 1.1-1.8 2.6-1.8 4.2s.6 3.1 1.8 4.2c1.1 1.2 2.6 1.8 4.2 1.8 1.6 0 3.1-.6 4.2-1.8 1.2-1.1 1.8-2.6 1.8-4.2s-.6-3.1-1.8-4.2c-1.1-1.2-2.6-1.8-4.2-1.8zm59.2 0c-1.6 0-3.1.6-4.2 1.8-1.2 1.1-1.8 2.6-1.8 4.2s.6 3.1 1.8 4.2c1.1 1.2 2.6 1.8 4.2 1.8 1.6 0 3.1-.6 4.2-1.8 1.1-1.2 1.8-2.6 1.8-4.2 0-1.6-.6-3.1-1.8-4.2-1.2-1.1-2.6-1.8-4.2-1.8zm-29.6 24c-1.6 0-3.1.6-4.2 1.8-1.1 1.1-1.8 2.6-1.8 4.2 0 1.6.6 3.1 1.8 4.2 1.2 1.2 2.6 1.8 4.2 1.8s3.1-.6 4.2-1.8c1.1-1.2 1.8-2.6 1.8-4.2c0-1.6-.6-3.1-1.8-4.2-1.1-1.1-2.6-1.8-4.2-1.8z'/%3E%3Cpath d='M182.6 112.4c-1.6 0-3.1.6-4.2 1.8-1.1 1.1-1.8 2.6-1.8 4.2 0 1.6.6 3.1 1.8 4.2 1.2 1.2 2.6 1.8 4.2 1.8s3.1-.6 4.2-1.8c1.1-1.2 1.8-2.6 1.8-4.2 0-1.6-.6-3.1-1.8-4.2-1.1-1.2-2.6-1.8-4.2-1.8zm-29.6 16c-1.6 0-3.1.6-4.2 1.8-1.2 1.1-1.8 2.6-1.8 4.2s.6 3.1 1.8 4.2c1.1 1.2 2.6 1.8 4.2 1.8 1.6 0 3.1-.6 4.2-1.8 1.2-1.1 1.8-2.6 1.8-4.2s-.6-3.1-1.8-4.2c-1.1-1.2-2.6-1.8-4.2-1.8zm59.2 0c-1.6 0-3.1.6-4.2 1.8-1.2 1.1-1.8 2.6-1.8 4.2s.6 3.1 1.8 4.2c1.1 1.2 2.6 1.8 4.2 1.8 1.6 0 3.1-.6 4.2-1.8 1.1-1.2 1.8-2.6 1.8-4.2 0-1.6-.6-3.1-1.8-4.2-1.2-1.1-2.6-1.8-4.2-1.8zm-29.6 24c-1.6 0-3.1.6-4.2 1.8-1.1 1.1-1.8 2.6-1.8 4.2 0 1.6.6 3.1 1.8 4.2 1.2 1.2 2.6 1.8 4.2 1.8s3.1-.6 4.2-1.8c1.1-1.2 1.8-2.6 1.8-4.2c0-1.6-.6-3.1-1.8-4.2-1.1-1.1-2.6-1.8-4.2-1.8z'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 400px 400px;
+            animation: scroll-bg 60s linear infinite;
+        }
+        .animated-bg > .container, .animated-bg > .grid {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes scroll-bg {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* Modal Styles */
+        #service-modal.visible {
+            display: flex;
+        }
+
+        /* Testimonials Carousel */
+        @keyframes scroll-testimonials {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .scrolling-wrapper {
+            animation: scroll-testimonials 80s linear infinite;
+        }
+        .scrolling-wrapper:hover {
+            animation-play-state: paused;
+        }
+        .testimonial-carousel-container::before, 
+        .testimonial-carousel-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 10rem;
+            z-index: 2;
+        }
+        .testimonial-carousel-container::before {
+            left: 0;
+            background: linear-gradient(to right, rgb(249 250 251), transparent);
+        }
+        .testimonial-carousel-container::after {
+            right: 0;
+            background: linear-gradient(to left, rgb(249 250 251), transparent);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <svg class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-2xl font-bold text-gray-800">Patitas Felices</span>
+            </div>
+            <nav class="hidden md:flex space-x-2">
+                <a href="#inicio" class="text-gray-600 hover:bg-indigo-100 hover:text-indigo-600 px-4 py-2 rounded-full transition-colors duration-300">Inicio</a>
+                <a href="#servicios" class="text-gray-600 hover:bg-indigo-100 hover:text-indigo-600 px-4 py-2 rounded-full transition-colors duration-300">Servicios</a>
+                <a href="#quienes-somos" class="text-gray-600 hover:bg-indigo-100 hover:text-indigo-600 px-4 py-2 rounded-full transition-colors duration-300">Quiénes Somos</a>
+                <a href="#sedes" class="text-gray-600 hover:bg-indigo-100 hover:text-indigo-600 px-4 py-2 rounded-full transition-colors duration-300">Sedes</a>
+                <a href="#nosotros" class="text-gray-600 hover:bg-indigo-100 hover:text-indigo-600 px-4 py-2 rounded-full transition-colors duration-300">Nuestro Equipo</a>
+                <a href="#testimonios" class="text-gray-600 hover:bg-indigo-100 hover:text-indigo-600 px-4 py-2 rounded-full transition-colors duration-300">Testimonios</a>
+                <a href="#contacto" class="bg-indigo-600 text-white hover:bg-indigo-700 px-5 py-2 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Contacto</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="#inicio" class="block text-gray-700 hover:bg-indigo-50 px-6 py-3">Inicio</a>
+            <a href="#servicios" class="block text-gray-700 hover:bg-indigo-50 px-6 py-3">Servicios</a>
+            <a href="#quienes-somos" class="block text-gray-700 hover:bg-indigo-50 px-6 py-3">Quiénes Somos</a>
+            <a href="#sedes" class="block text-gray-700 hover:bg-indigo-50 px-6 py-3">Sedes</a>
+            <a href="#nosotros" class="block text-gray-700 hover:bg-indigo-50 px-6 py-3">Nuestro Equipo</a>
+            <a href="#testimonios" class="block text-gray-700 hover:bg-indigo-50 px-6 py-3">Testimonios</a>
+            <a href="#contacto" class="block text-gray-700 hover:bg-indigo-50 px-6 py-3">Contacto</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: Hero -->
+        <section id="inicio" class="relative min-h-screen flex items-center bg-gray-100 overflow-hidden">
+            <div id="hero-slider" class="absolute inset-0">
+                <!-- Slides will be injected here by JS -->
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div id="hero-content" class="container mx-auto px-6 relative text-white">
+                <!-- Content will be injected here by JS -->
+            </div>
+        </section>
+
+        <!-- Section 2: Services -->
+        <section id="servicios" class="py-20 md:py-32 bg-white animated-bg">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold text-indigo-600 mb-4">Nuestros Servicios</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Ofrecemos una atención integral y personalizada para garantizar el bienestar de tu mascota.</p>
+                </div>
+                <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service cards will be injected by JS -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section: Quiénes Somos (Corporate Info) -->
+        <section id="quienes-somos" class="py-20 md:py-32 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold text-indigo-600 mb-4">Nuestro Compromiso</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Conoce los pilares que guían cada una de nuestras acciones.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <!-- Misión Card -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg text-center reveal">
+                        <div class="bg-indigo-100 text-indigo-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-indigo-800 mb-4">Misión</h3>
+                        <p class="text-gray-600">Proporcionar atención veterinaria integral y compasiva, utilizando tecnología de vanguardia y un equipo humano altamente calificado para mejorar y prolongar la calidad de vida de las mascotas.</p>
+                    </div>
+                    <!-- Visión Card -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg text-center reveal" style="transition-delay: 200ms;">
+                         <div class="bg-indigo-100 text-indigo-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-indigo-800 mb-4">Visión</h3>
+                        <p class="text-gray-600">Ser la clínica veterinaria líder y de referencia en la región, reconocida por nuestra excelencia médica, innovación constante y por crear un vínculo de confianza duradero con nuestros clientes y sus mascotas.</p>
+                    </div>
+                    <!-- Valores Card -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg text-center reveal" style="transition-delay: 400ms;">
+                         <div class="bg-indigo-100 text-indigo-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                           <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-indigo-800 mb-4">Valores</h3>
+                        <ul class="text-gray-600 space-y-2 text-left">
+                            <li><span class="font-semibold text-indigo-700">✓ Compasión:</span> Trato empático y cariñoso.</li>
+                            <li><span class="font-semibold text-indigo-700">✓ Excelencia:</span> Búsqueda de los más altos estándares.</li>
+                            <li><span class="font-semibold text-indigo-700">✓ Integridad:</span> Honestidad y ética profesional.</li>
+                            <li><span class="font-semibold text-indigo-700">✓ Compromiso:</span> Dedicación total al paciente.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Sedes -->
+        <section id="sedes" class="py-20 md:py-32 bg-white animated-bg">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold text-indigo-600 mb-4">Encuentra tu Sede Cercana</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Estamos convenientemente ubicados para atenderte cuando más nos necesites.</p>
+                </div>
+                <div class="flex flex-col lg:flex-row gap-12 items-center">
+                    <div id="locations-list" class="w-full lg:w-1/3 space-y-4">
+                        <!-- Locations will be injected by JS -->
+                    </div>
+                    <div class="w-full lg:w-2/3 h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl reveal">
+                        <iframe id="map" class="w-full h-full border-0"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.401511539481!2d-75.57320178820675!3d6.210657293751321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44282ba41a1223%3A0x441b86841cf659a!2sCl%2010%20%2343a-15%2C%20El%20Poblado%2C%20Medell%C3%ADn%2C%20El%20Poblado%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1736996008870!5m2!1ses!2sco"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 4: Nosotros -->
+        <section id="nosotros" class="py-20 md:py-32 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold text-indigo-600 mb-4">Nuestro Equipo de Expertos</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Profesionales apasionados por la salud y el bienestar animal.</p>
+                </div>
+                <div class="flex flex-col lg:flex-row gap-8 items-center min-h-[500px]">
+                    <div id="team-gallery" class="w-full lg:w-1/2 h-96 lg:h-[500px] flex rounded-2xl overflow-hidden shadow-lg reveal">
+                        <!-- Team gallery items will be injected by JS -->
+                    </div>
+                    <div id="team-details" class="w-full lg:w-1/2 p-8 bg-white rounded-2xl min-h-[400px]">
+                        <!-- Team details will be injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Testimonials -->
+        <section id="testimonios" class="py-20 md:py-32 bg-gray-50 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold text-indigo-600 mb-4">Lo que dicen nuestros clientes</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">La confianza y felicidad de nuestros pacientes y sus familias es nuestra mayor recompensa.</p>
+                </div>
+            </div>
+            <div class="testimonial-carousel-container relative w-full">
+                <div id="testimonials-container" class="scrolling-wrapper flex w-max">
+                    <!-- Testimonials will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Contacto -->
+        <section id="contacto" class="py-20 md:py-32 bg-indigo-700 text-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Ponte en Contacto</h2>
+                    <p class="text-lg text-indigo-200 max-w-3xl mx-auto">¿Tienes alguna pregunta o quieres agendar una cita? Escríbenos. Para urgencias, utiliza nuestras líneas de atención inmediata.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <!-- Contact Form -->
+                    <div class="bg-white text-gray-800 p-8 rounded-2xl shadow-2xl reveal">
+                        <h3 class="text-2xl font-bold text-indigo-800 mb-6">Envíanos un Mensaje</h3>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">Nombre Completo</label>
+                                <input type="text" id="name" name="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                             <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                             <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700">Teléfono</label>
+                                <input type="tel" id="phone" name="phone" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700">Asunto</label>
+                                <select id="subject" name="subject" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                    <option>Agendar una Cita</option>
+                                    <option>Consulta General</option>
+                                    <option>Resultados de Exámenes</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
+                                <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full bg-indigo-600 text-white hover:bg-indigo-800 px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300">Enviar Mensaje</button>
+                            </div>
+                        </form>
+                        <div id="form-success-message" class="hidden mt-4 text-center p-3 rounded-md bg-green-100 text-green-800">
+                            ¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.
+                        </div>
+                    </div>
+                    <!-- Contact Info -->
+                    <div class="reveal" style="transition-delay: 200ms;">
+                         <div class="lg:w-full text-center lg:text-left">
+                            <h3 class="text-3xl font-bold mb-6 text-white">Atención Inmediata</h3>
+                            <p class="text-lg text-indigo-200 mb-8 max-w-xl">
+                                Para emergencias o si prefieres hablar directamente con nosotros, utiliza los siguientes números.
+                            </p>
+                            <div class="space-y-6">
+                                 <div class="bg-white text-indigo-800 p-6 rounded-2xl flex items-center space-x-4 shadow-lg">
+                                    <svg class="w-10 h-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <div>
+                                        <h4 class="font-bold text-xl">Línea de Emergencias 24/7</h4>
+                                        <p class="text-2xl font-semibold">604 564 82 73</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white text-indigo-800 p-6 rounded-2xl flex items-center space-x-4 shadow-lg">
+                                    <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    <div>
+                                        <h4 class="font-bold text-xl">Solicitud de Citas</h4>
+                                        <p class="text-2xl font-semibold">604 564 82 74</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Clínica Veterinaria Patitas Felices. Todos los derechos reservados.</p>
+            <p class="text-gray-400 mt-2">Diseño y desarrollo con ❤️</p>
+        </div>
+    </footer>
+
+    <!-- Service Modal -->
+    <div id="service-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black bg-opacity-60 opacity-0 transition-opacity duration-300">
+        <div id="modal-content" class="relative w-11/12 max-w-4xl transform rounded-2xl bg-white shadow-2xl transition-transform duration-300 scale-95">
+             <button id="close-modal" class="absolute -top-4 -right-4 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-white text-gray-700 shadow-lg transition-all duration-300 hover:bg-red-500 hover:text-white hover:rotate-90">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="animated-bg grid overflow-hidden rounded-2xl md:grid-cols-2 max-h-[80vh]">
+                <div id="modal-image" class="h-64 bg-cover bg-center md:h-auto"></div>
+                <div class="flex flex-col p-8 md:p-10">
+                    <h3 id="modal-title" class="mb-4 text-3xl font-bold text-indigo-700"></h3>
+                    <div id="modal-description" class="prose max-w-none flex-grow overflow-y-auto text-gray-600">
+                        <!-- Detailed description will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- DATA ---
+            const heroData = [
+                {
+                    image: 'https://placehold.co/1920x1080/A78BFA/FFFFFF?text=Mascota+Feliz+1',
+                    title: 'Tu mejor amigo en manos expertas',
+                    description: 'Nos dedicamos al bienestar de tus mascotas con un enfoque profesional y lleno de cariño.',
+                    buttonText: 'Conócenos',
+                    buttonLink: '#nosotros'
+                },
+                {
+                    image: 'https://placehold.co/1920x1080/C4B5FD/FFFFFF?text=Mascota+Feliz+2',
+                    title: 'Servicios a la medida de cada necesidad',
+                    description: 'Ofrecemos una amplia gama de servicios para garantizar el bienestar integral de tu mascota.',
+                    buttonText: 'Ver Servicios',
+                    buttonLink: '#servicios'
+                },
+                {
+                    image: 'https://placehold.co/1920x1080/818CF8/FFFFFF?text=Mascota+Feliz+3',
+                    title: 'Cobertura 24/7 en urgencias médicas',
+                    description: 'Estamos disponibles las 24 horas, porque la salud de tu mascota no tiene horario.',
+                    buttonText: 'Nuestras Sedes',
+                    buttonLink: '#sedes'
+                }
+            ];
+            
+            const servicesData = [
+                { 
+                    icon: 'M19 14l-7 7m0 0l-7-7m7 7V3', 
+                    title: 'Servicios Generales', 
+                    description: 'Consultas, vacunación, desparasitación y expedientes médicos.',
+                    image: 'https://placehold.co/600x800/818CF8/FFFFFF?text=Consulta',
+                    detailedDescription: `
+                        <p class="mb-4">La base de una mascota sana comienza con la prevención y el cuidado regular. Nuestros servicios generales están diseñados para mantener a tu compañero en óptimas condiciones en cada etapa de su vida.</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Consulta General:</strong> Exámenes de rutina para detectar y diagnosticar enfermedades a tiempo.</li>
+                            <li><strong>Vacunación:</strong> Aplicación de vacunas esenciales para proteger contra enfermedades graves.</li>
+                            <li><strong>Desparasitación:</strong> Tratamientos internos y externos para mantener a tu mascota libre de parásitos.</li>
+                        </ul>`
+                },
+                { 
+                    icon: 'M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4z', 
+                    title: 'Diagnóstico y Prevención', 
+                    description: 'Exámenes de laboratorio, radiografías, ecografías y chequeos.',
+                    image: 'https://placehold.co/600x800/A78BFA/FFFFFF?text=Diagnóstico',
+                    detailedDescription: `
+                        <p class="mb-4">Contamos con tecnología avanzada para un diagnóstico preciso, permitiéndonos actuar con rapidez y eficacia.</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Laboratorio Clínico:</strong> Análisis de sangre, orina y otros fluidos para un panorama completo de la salud.</li>
+                            <li><strong>Diagnóstico por Imagen:</strong> Radiografías y ecografías para evaluar órganos internos y estructuras óseas sin procedimientos invasivos.</li>
+                            <li><strong>Chequeos Preventivos:</strong> Programas adaptados a la edad y raza de tu mascota para prevenir futuras complicaciones.</li>
+                        </ul>`
+                },
+                { 
+                    icon: 'M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z', 
+                    title: 'Cirugías y Procedimientos', 
+                    description: 'Esterilización, cirugías generales, laparoscópica y odontología.',
+                    image: 'https://placehold.co/600x800/C4B5FD/FFFFFF?text=Cirugía',
+                    detailedDescription: `
+                        <p class="mb-4">Nuestro quirófano está equipado con la última tecnología y nuestro equipo quirúrgico posee una vasta experiencia para garantizar la máxima seguridad y el mejor resultado en cada procedimiento.</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Cirugía General y Especializada:</strong> Desde esterilizaciones hasta procedimientos complejos.</li>
+                            <li><strong>Odontología Veterinaria:</strong> Limpiezas dentales, extracciones y tratamientos para asegurar una salud oral óptima.</li>
+                        </ul>`
+                },
+                { 
+                    icon: 'M5 13l4 4L19 7', 
+                    title: 'Especialidades', 
+                    description: 'Dermatología, oftalmología, ortopedia y nutrición especializada.',
+                    image: 'https://placehold.co/600x800/6D28D9/FFFFFF?text=Especialidades',
+                    detailedDescription: `
+                        <p class="mb-4">Ofrecemos atención especializada en diversas áreas para tratar condiciones específicas con un enfoque experto.</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Dermatología:</strong> Tratamiento de alergias, infecciones de piel y problemas de pelaje.</li>
+                            <li><strong>Ortopedia:</strong> Soluciones para fracturas, displasia de cadera y problemas articulares.</li>
+                            <li><strong>Nutrición:</strong> Planes de alimentación personalizados para cada necesidad.</li>
+                        </ul>`
+                },
+                { 
+                    icon: 'M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z', 
+                    title: 'Emergencia y Hospitalización', 
+                    description: 'Atención 24/7, cuidados intensivos y monitoreo constante.',
+                    image: 'https://placehold.co/600x800/8B5CF6/FFFFFF?text=Emergencia',
+                    detailedDescription: `
+                        <p class="mb-4">Sabemos que las emergencias no tienen horario. Nuestro equipo está disponible 24/7 para brindar atención crítica cuando más lo necesites.</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Urgencias 24/7:</strong> Atención inmediata para casos críticos.</li>
+                            <li><strong>Hospitalización:</strong> Cuidado y monitoreo continuo para pacientes que requieren supervisión constante.</li>
+                        </ul>`
+                },
+                { 
+                    icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l-3 3m6 0l-3 3m0 6l3 3m-6 0l3 3', 
+                    title: 'Estética y Bienestar', 
+                    description: 'Baño, peluquería profesional y spa para mascotas.',
+                    image: 'https://placehold.co/600x800/7C3AED/FFFFFF?text=Bienestar',
+                    detailedDescription: `
+                        <p class="mb-4">Porque una mascota limpia es una mascota feliz. Ofrecemos servicios de estética para que tu compañero luzca y se sienta increíble.</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Peluquería Canina y Felina:</strong> Cortes de pelo adaptados a cada raza, baños medicados y limpieza general.</li>
+                            <li><strong>Spa para Mascotas:</strong> Tratamientos relajantes para consentir a tu mejor amigo.</li>
+                        </ul>`
+                },
+                { 
+                    icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3', 
+                    title: 'Servicios a Domicilio', 
+                    description: 'Consultas, vacunación y desparasitación en tu hogar.',
+                    image: 'https://placehold.co/600x800/A78BFA/FFFFFF?text=A+Domicilio',
+                    detailedDescription: `
+                        <p class="mb-4">Para tu comodidad y la tranquilidad de tu mascota, llevamos nuestros servicios profesionales directamente a tu puerta.</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Consultas en Casa:</strong> Ideal para mascotas nerviosas o dueños con movilidad reducida.</li>
+                            <li><strong>Vacunación a Domicilio:</strong> Cumple con el esquema de vacunación sin estrés.</li>
+                        </ul>`
+                },
+                { 
+                    icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', 
+                    title: 'Servicios Especiales', 
+                    description: 'Certificados de salud, eutanasia humanitaria y cremación.',
+                    image: 'https://placehold.co/600x800/818CF8/FFFFFF?text=Especiales',
+                    detailedDescription: `
+                        <p class="mb-4">Te acompañamos en todos los momentos, brindando apoyo y soluciones para situaciones particulares.</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Certificados de Viaje:</strong> Documentación necesaria para viajes nacionales e internacionales.</li>
+                            <li><strong>Eutanasia Humanitaria:</strong> Un procedimiento compasivo para despedir a tu compañero sin dolor.</li>
+                        </ul>`
+                }
+            ];
+
+            const locationsData = [
+                { name: 'Sede Poblado', address: 'Cl 10 #43a-15, El Poblado, Medellín', phone: '+57 328 772 222', mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.401511539481!2d-75.57320178820675!3d6.210657293751321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44282ba41a1223%3A0x441b86841cf659a!2sCl%2010%20%2343a-15%2C%20El%20Poblado%2C%20Medell%C3%ADn%2C%20El%20Poblado%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1736996008870!5m2!1ses!2sco' },
+                { name: 'Sede Laureles', address: 'Circ. 4 #73-124, Laureles, Medellín', phone: '+57 328 772 333', mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.0716173914411!2d-75.59451612791106!3d6.244847493717387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4429189ed12fa5%3A0x25ee111d3749161a!2sHotel%20Asturias%20Medellin!5e0!3m2!1ses!2sco!4v1736996130981!5m2!1ses!2sco' },
+                { name: 'Sede CC El Tesoro', address: 'Cra. 25a #1A sur 45 Local 3027, Medellín', phone: '+57 382 772 222', mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.6252131219381!2d-75.55886709776365!3d6.197456693764355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e46829a191ffd75%3A0xd1ba421be16030e3!2sCra.%2025a%20%231a%20Sur%2045%20Local%203027%2C%20El%20Poblado%2C%20Medell%C3%ADn%2C%20El%20Poblado%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1736996265417!5m2!1ses!2sco' },
+                { name: 'Sede CC Viva Envigado', address: 'Carrera 48 # 32B sur 139 LOCAL 366, Envigado', phone: '+57 397 772 222', mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.502670739083!2d-75.59306430457097!3d6.176792081125159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4683d4c79a57ad%3A0x2e13211df72b9f79!2sEl%20Rancherito%20Viva%20Envigado!5e0!3m2!1ses!2sco!4v1736994641154!5m2!1ses!2sco' }
+            ];
+
+            const teamData = [
+                {
+                    name: 'Dr. Juan Rodríguez',
+                    specialty: 'Cardiología',
+                    profile: 'Médico veterinario con más de 10 años de experiencia en el diagnóstico, tratamiento y prevención de enfermedades.',
+                    image: 'https://placehold.co/600x800/6D28D9/FFFFFF?text=Dr.+Juan'
+                },
+                {
+                    name: 'Dra. Carolina Rojas',
+                    specialty: 'Dermatología y Nutrición',
+                    profile: 'Experta en el tratamiento de enfermedades dermatológicas y desarrollo de planes nutricionales.',
+                    image: 'https://placehold.co/600x800/7C3AED/FFFFFF?text=Dra.+Carolina'
+                },
+                {
+                    name: 'Dr. Alejandro Gómez',
+                    specialty: 'Cirugía y Ortopedia',
+                    profile: 'Veterinario con más de 12 años de experiencia en cirugía avanzada en pequeñas especies y traumatología.',
+                    image: 'https://placehold.co/600x800/8B5CF6/FFFFFF?text=Dr.+Alejandro'
+                },
+                {
+                    name: 'Dra. Valeria Estrada',
+                    specialty: 'Fauna Silvestre',
+                    profile: 'Especialista en rescate, rehabilitación y conservación de fauna silvestre con más de 8 años de experiencia.',
+                    image: 'https://placehold.co/600x800/A78BFA/FFFFFF?text=Dra.+Valeria'
+                },
+                {
+                    name: 'Dr. Pelos',
+                    specialty: 'Abrazos y Narices Húmedas',
+                    profile: 'Especializado en brindar tranquilidad a sus pacientes, con un enfoque amable y juguetón que alivia el estrés.',
+                    image: 'https://placehold.co/600x800/C4B5FD/FFFFFF?text=Dr.+Pelos'
+                }
+            ];
+            
+            const testimonialsData = [
+                { name: 'Ana María G.', pet: 'Toby', rating: 5, text: 'El Dr. Juan es increíble. Salvó la vida de mi Toby con su diagnóstico rápido y preciso. ¡Eternamente agradecida!', avatar: 'https://placehold.co/100x100/FFC107/FFFFFF?text=AG' },
+                { name: 'Carlos Vélez', pet: 'Luna', rating: 5, text: 'Llevo a Luna para sus chequeos y vacunas desde que era una cachorra. El trato es siempre profesional y muy cariñoso.', avatar: 'https://placehold.co/100x100/4CAF50/FFFFFF?text=CV' },
+                { name: 'Sofia Jaramillo', pet: 'Simba', rating: 5, text: 'La Dra. Carolina resolvió un problema de piel que Simba tenía desde hace meses. Su conocimiento en dermatología es excepcional.', avatar: 'https://placehold.co/100x100/E91E63/FFFFFF?text=SJ' },
+                { name: 'Ricardo Pérez', pet: 'Rocky', rating: 5, text: 'Tuvieron que operar a Rocky de urgencia y el equipo fue maravilloso. La recuperación fue un éxito gracias a sus cuidados.', avatar: 'https://placehold.co/100x100/2196F3/FFFFFF?text=RP' },
+                { name: 'Laura Restrepo', pet: 'Milo', rating: 5, text: 'El servicio a domicilio es una maravilla. Milo se estresa mucho en el carro y poder vacunarlo en casa no tiene precio.', avatar: 'https://placehold.co/100x100/9C27B0/FFFFFF?text=LR' },
+                { name: 'Juan David H.', pet: 'Frida', rating: 5, text: 'Siempre encuentro todo lo que necesito para Frida, desde la mejor comida hasta un consejo experto. ¡Son los mejores!', avatar: 'https://placehold.co/100x100/00BCD4/FFFFFF?text=JH' },
+                { name: 'Valentina Muñoz', pet: 'Thor', rating: 5, text: 'La atención en emergencias 24/7 es un salvavidas. Nos atendieron a las 3 a.m. con una amabilidad y profesionalismo increíbles.', avatar: 'https://placehold.co/100x100/F44336/FFFFFF?text=VM' },
+                { name: 'Mateo González', pet: 'Kiara', rating: 5, text: 'El servicio de peluquería es fantástico. Kiara siempre sale feliz y luciendo hermosa. ¡Recomendadísimo!', avatar: 'https://placehold.co/100x100/3F51B5/FFFFFF?text=MG' },
+                { name: 'Isabela Correa', pet: 'Max', rating: 5, text: 'Confianza total en el equipo de Patitas Felices. Se nota la pasión y el amor que tienen por los animales en cada consulta.', avatar: 'https://placehold.co/100x100/8BC34A/FFFFFF?text=IC' },
+                { name: 'Andrés Londoño', pet: 'Coco', rating: 5, text: 'El Dr. Pelos es el favorito de Coco. Su habilidad para calmar a los pacientes más nerviosos es un don.', avatar: 'https://placehold.co/100x100/FF9800/FFFFFF?text=AL' }
+            ];
+
+
+            // --- UI RENDER FUNCTIONS ---
+            
+            // Render Services
+            const servicesGrid = document.getElementById('services-grid');
+            servicesData.forEach((service, index) => {
+                const delay = index * 100;
+                const card = document.createElement('div');
+                card.className = 'bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 reveal cursor-pointer';
+                card.style.transitionDelay = `${delay}ms`;
+                card.dataset.index = index;
+                card.innerHTML = `
+                    <div class="bg-indigo-100 text-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 pointer-events-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${service.icon}"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 pointer-events-none">${service.title}</h3>
+                    <p class="text-gray-600 pointer-events-none">${service.description}</p>
+                `;
+                servicesGrid.appendChild(card);
+            });
+
+            // Render Locations
+            const locationsList = document.getElementById('locations-list');
+            const mapFrame = document.getElementById('map');
+            locationsData.forEach((location, index) => {
+                const delay = index * 100;
+                const locationItem = document.createElement('div');
+                locationItem.className = 'location-item bg-white p-6 rounded-xl cursor-pointer shadow-md hover:shadow-lg hover:bg-indigo-50 transition-all duration-300 reveal';
+                locationItem.style.transitionDelay = `${delay}ms`;
+                locationItem.innerHTML = `
+                    <h3 class="font-bold text-lg text-indigo-800">${location.name}</h3>
+                    <p class="text-gray-600">${location.address}</p>
+                    <p class="text-gray-500 font-medium">${location.phone}</p>
+                `;
+                locationItem.addEventListener('click', () => {
+                    mapFrame.src = location.mapSrc;
+                    document.querySelectorAll('.location-item').forEach(item => item.classList.remove('ring-2', 'ring-indigo-500', 'bg-indigo-50'));
+                    locationItem.classList.add('ring-2', 'ring-indigo-500', 'bg-indigo-50');
+                });
+                locationsList.appendChild(locationItem);
+                if (index === 0) {
+                     locationItem.classList.add('ring-2', 'ring-indigo-500', 'bg-indigo-50');
+                }
+            });
+            
+            // Render Team Section
+            const teamGallery = document.getElementById('team-gallery');
+            const teamDetails = document.getElementById('team-details');
+
+            function updateTeamDetails(index) {
+                const member = teamData[index];
+                teamDetails.innerHTML = `
+                    <div class="animate-fade-in">
+                        <h3 class="text-3xl font-bold text-indigo-600 mb-2">${member.name}</h3>
+                        <p class="text-xl font-semibold text-indigo-400 mb-6">${member.specialty}</p>
+                        <p class="text-gray-600 leading-relaxed">${member.profile}</p>
+                    </div>
+                `;
+            }
+
+            teamData.forEach((member, index) => {
+                const item = document.createElement('div');
+                item.className = 'team-gallery-item h-full w-1/5 bg-cover bg-center bg-no-repeat cursor-pointer';
+                item.style.backgroundImage = `url(${member.image})`;
+                item.addEventListener('mouseenter', () => {
+                    document.querySelectorAll('.team-gallery-item').forEach(el => el.style.width = '12.5%');
+                    item.style.width = '50%';
+                    updateTeamDetails(index);
+                });
+                teamGallery.appendChild(item);
+            });
+            
+            // Set initial state for team section
+            document.querySelector('.team-gallery-item').style.width = '50%';
+            updateTeamDetails(0);
+            
+            // Render Testimonials
+            const testimonialsContainer = document.getElementById('testimonials-container');
+            const allTestimonials = [...testimonialsData, ...testimonialsData]; // Duplicate for seamless loop
+            allTestimonials.forEach(testimonial => {
+                const card = document.createElement('div');
+                card.className = 'flex-shrink-0 w-80 md:w-96 bg-white rounded-2xl shadow-lg p-8 mx-4';
+                const stars = Array(testimonial.rating).fill('<svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>').join('');
+                card.innerHTML = `
+                    <div class="flex items-center mb-4">
+                        <img src="${testimonial.avatar}" alt="${testimonial.name}" class="w-16 h-16 rounded-full mr-4 border-2 border-indigo-200">
+                        <div>
+                            <p class="font-bold text-lg text-indigo-800">${testimonial.name}</p>
+                            <p class="text-sm text-gray-500">Dueño(a) de ${testimonial.pet}</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-4">${stars}</div>
+                    <p class="text-gray-600 italic">"${testimonial.text}"</p>
+                `;
+                testimonialsContainer.appendChild(card);
+            });
+
+
+            // --- INTERACTIONS ---
+
+            // Modal Logic
+            const serviceModal = document.getElementById('service-modal');
+            const modalContent = document.getElementById('modal-content');
+            const closeModalButton = document.getElementById('close-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalImage = document.getElementById('modal-image');
+            const modalDescription = document.getElementById('modal-description');
+
+            function openModal(index) {
+                const service = servicesData[index];
+                modalTitle.textContent = service.title;
+                modalImage.style.backgroundImage = `url(${service.image})`;
+                modalDescription.innerHTML = service.detailedDescription;
+                
+                serviceModal.classList.add('visible');
+                setTimeout(() => {
+                    serviceModal.classList.remove('opacity-0');
+                    modalContent.classList.remove('scale-95');
+                }, 10);
+            }
+
+            function closeModal() {
+                serviceModal.classList.add('opacity-0');
+                modalContent.classList.add('scale-95');
+                setTimeout(() => {
+                    serviceModal.classList.remove('visible');
+                }, 300);
+            }
+
+            servicesGrid.addEventListener('click', (e) => {
+                const card = e.target.closest('[data-index]');
+                if (card) {
+                    openModal(card.dataset.index);
+                }
+            });
+
+            closeModalButton.addEventListener('click', closeModal);
+            serviceModal.addEventListener('click', (e) => {
+                if (e.target === serviceModal) {
+                    closeModal();
+                }
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-white', 'shadow-lg');
+                } else {
+                    header.classList.remove('bg-white', 'shadow-lg');
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Close mobile menu on link click
+            mobileMenu.addEventListener('click', (e) => {
+                if(e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+            // Hero Slider
+            const heroSlider = document.getElementById('hero-slider');
+            const heroContent = document.getElementById('hero-content');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                const slide = heroData[index];
+                heroSlider.innerHTML = `<div class="absolute inset-0 bg-cover bg-center hero-slide-image" style="background-image: url('${slide.image}');"></div>`;
+                heroContent.innerHTML = `
+                    <div class="max-w-3xl hero-slide-content">
+                        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">${slide.title}</h1>
+                        <p class="text-lg md:text-xl mb-8">${slide.description}</p>
+                        <a href="${slide.buttonLink}" class="bg-indigo-600 text-white hover:bg-indigo-700 px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-block">${slide.buttonText}</a>
+                    </div>
+                `;
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % heroData.length;
+                showSlide(currentSlide);
+            }
+            showSlide(currentSlide);
+            setInterval(nextSlide, 8000);
+            
+            // Scroll reveal animation
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => observer.observe(el));
+
+            // Contact Form Logic
+            const contactForm = document.getElementById('contact-form');
+            const successMessage = document.getElementById('form-success-message');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevent actual form submission
+                
+                // In a real application, you would send the data to a server here.
+                // For this demo, we'll just show a success message.
+                
+                successMessage.classList.remove('hidden');
+                contactForm.reset();
+                
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 5000); // Hide message after 5 seconds
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
