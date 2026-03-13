@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+@import "./responsive.css";
+
+@theme {
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafaf9; /* stone-50 */
+  color: #292524; /* stone-800 */
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f4; /* stone-100 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1; /* stone-300 */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0d9488; /* teal-600 */
+}
+
+/* Soft Animated Background for specific sections */
+.animated-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  z-index: 0;
+  background-image: radial-gradient(#14b8a6 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.05;
+  animation: scroll-bg 100s linear infinite;
+}
+
+@keyframes scroll-bg {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-50%) translateX(-50%); }
+}
+
+/* Testimonials Carousel */
+@keyframes scroll-testimonials {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.scrolling-wrapper {
+  animation: scroll-testimonials 60s linear infinite;
+}
+
+.scrolling-wrapper:hover {
+  animation-play-state: paused;
+}
+
+.testimonial-carousel-container::before, 
+.testimonial-carousel-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.testimonial-carousel-container::before {
+  left: 0;
+  background: linear-gradient(to right, #fafaf9, transparent);
+}
+
+.testimonial-carousel-container::after {
+  right: 0;
+  background: linear-gradient(to left, #fafaf9, transparent);
+}

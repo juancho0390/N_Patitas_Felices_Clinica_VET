@@ -1,0 +1,66 @@
+/* Custom Responsive Styles */
+
+/* Fluid Typography for Headings */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1025px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Touch targets for mobile */
+@media (max-width: 768px) {
+  button, 
+  a.button,
+  .nav-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Fix for mobile viewport height */
+.min-h-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Better image responsiveness */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Grid adjustments for very small screens */
+@media (max-width: 480px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
