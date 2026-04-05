@@ -11,21 +11,21 @@ import {
 
 export const heroData = [
   {
-    image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1920&q=80',
+    image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1920&q=85',
     title: 'Medicina veterinaria de excelencia, con el corazón.',
     description: 'En Patitas Felices combinamos tecnología médica de vanguardia con un trato humano y compasivo. Porque sabemos que no son solo mascotas, son familia.',
     buttonText: 'Conoce nuestra clínica',
-    buttonLink: '#nosotros'
+    buttonLink: '#quienes-somos'
   },
   {
-    image: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=1920&q=80',
+    image: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=1920&q=85',
     title: 'Especialistas en cada etapa de su vida.',
     description: 'Desde sus primeras vacunas hasta el cuidado geriátrico especializado. Un equipo multidisciplinario dedicado a garantizar su bienestar integral.',
     buttonText: 'Explorar Servicios',
     buttonLink: '#servicios'
   },
   {
-    image: 'https://images.unsplash.com/photo-1599443015574-be5fe8a05783?auto=format&fit=crop&w=1920&q=80',
+    image: 'https://images.unsplash.com/photo-1599443015574-be5fe8a05783?auto=format&fit=crop&w=1920&q=85',
     title: 'Urgencias 24/7: Siempre a tu lado.',
     description: 'La salud no tiene horario. Contamos con unidad de cuidados intensivos y personal médico disponible las 24 horas del día, los 365 días del año.',
     buttonText: 'Ver Sedes y Horarios',
@@ -38,7 +38,7 @@ export const servicesData = [
     icon: Stethoscope,
     title: 'Medicina Preventiva',
     description: 'Consultas integrales, esquemas de vacunación personalizados y control de parásitos.',
-    image: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=800&q=80',
     detailedDescription: `
       <p class="mb-4 text-lg">La prevención es el pilar fundamental para una vida larga y saludable. Nuestro enfoque proactivo nos permite detectar anomalías antes de que se conviertan en problemas graves.</p>
       <ul class="list-none space-y-3 mt-6">
@@ -51,7 +51,7 @@ export const servicesData = [
     icon: Activity,
     title: 'Diagnóstico por Imagen y Laboratorio',
     description: 'Tecnología de punta: Rayos X digitales, ecografía Doppler y laboratorio in-house.',
-    image: 'https://images.unsplash.com/photo-1584815682414-0e31818d4be1?auto=format&fit=crop&w=800&q=80',
+    image: `${import.meta.env.BASE_URL}images/diagnostico_laboratorio.png`,
     detailedDescription: `
       <p class="mb-4 text-lg">Respuestas rápidas y precisas. Contamos con equipos de diagnóstico de última generación que nos permiten obtener resultados en minutos, cruciales para situaciones de emergencia.</p>
       <ul class="list-none space-y-3 mt-6">
@@ -64,7 +64,7 @@ export const servicesData = [
     icon: Scissors,
     title: 'Cirugía y Anestesia Segura',
     description: 'Quirófanos equipados, monitorización multiparamétrica y manejo del dolor.',
-    image: 'https://images.unsplash.com/photo-1581594412586-7710b1066c1b?auto=format&fit=crop&w=800&q=80',
+    image: `${import.meta.env.BASE_URL}images/cirugia_anestesia.png`,
     detailedDescription: `
       <p class="mb-4 text-lg">La seguridad de tu mascota es nuestra prioridad absoluta. Empleamos protocolos anestésicos individualizados y técnicas quirúrgicas mínimamente invasivas siempre que es posible.</p>
       <ul class="list-none space-y-3 mt-6">
@@ -77,7 +77,7 @@ export const servicesData = [
     icon: Eye,
     title: 'Especialidades Médicas',
     description: 'Dermatología, cardiología, oftalmología, neurología y oncología veterinaria.',
-    image: 'https://images.unsplash.com/photo-1537151608804-ea2f14cb1f3f?auto=format&fit=crop&w=800&q=80',
+    image: `${import.meta.env.BASE_URL}images/especialidades_dermatologia.png`,
     detailedDescription: `
       <p class="mb-4 text-lg">Casos complejos requieren conocimientos específicos. Nuestro equipo cuenta con especialistas dedicados a diferentes ramas de la medicina veterinaria.</p>
       <ul class="list-none space-y-3 mt-6">
@@ -176,31 +176,31 @@ export const teamData = [
     name: 'Dr. Juan Rodríguez',
     specialty: 'Cardiología y Medicina Interna',
     profile: 'Especialista certificado con más de 15 años de experiencia. Pionero en ecocardiografía veterinaria en la región, dedicado a mejorar la calidad de vida de pacientes con patologías crónicas.',
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80'
+    image: `${import.meta.env.BASE_URL}images/galeria1.jpg`
   },
   {
     name: 'Dra. Carolina Rojas',
     specialty: 'Dermatología y Alergología',
     profile: 'Máster en Dermatología Veterinaria. Su enfoque se centra en resolver casos crónicos de piel y oídos, devolviendo el confort y la tranquilidad a las mascotas y sus familias.',
-    image: 'https://images.unsplash.com/photo-1594824436951-7f12620565da?auto=format&fit=crop&w=800&q=80'
+    image: `${import.meta.env.BASE_URL}images/galeria2.jpg`
   },
   {
     name: 'Dr. Alejandro Gómez',
     specialty: 'Cirugía de Tejidos Blandos y Ortopedia',
     profile: 'Cirujano jefe con entrenamiento avanzado en traumatología y técnicas mínimamente invasivas (laparoscopia). Ha realizado más de 3,000 procedimientos exitosos.',
-    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80'
+    image: `${import.meta.env.BASE_URL}images/galeria3.jpg`
   },
   {
     name: 'Dra. Valeria Estrada',
     specialty: 'Medicina Felina y Comportamiento',
     profile: 'Certificada en manejo "Cat Friendly". Entiende las particularidades médicas y conductuales de los gatos, asegurando consultas libres de estrés y diagnósticos precisos.',
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80'
+    image: `${import.meta.env.BASE_URL}images/galeria4.jpg`
   },
   {
     name: 'Dr. Pelos',
     specialty: 'Jefe de Relaciones Públicas',
     profile: 'Nuestro terapeuta residente. Especializado en brindar apoyo emocional, recibir a los pacientes con movimientos de cola y asegurar que el ambiente de la clínica sea siempre alegre.',
-    image: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80'
+    image: `${import.meta.env.BASE_URL}images/galeria5.jpg`
   }
 ];
 
@@ -214,12 +214,12 @@ export const testimonialsData = [
 
 export const facilitiesData = [
   {
-    image: 'https://images.unsplash.com/photo-1581594412586-7710b1066c1b?auto=format&fit=crop&w=1000&q=80',
+    image: `${import.meta.env.BASE_URL}images/cirugia_anestesia.png`,
     title: 'Quirófano de Alta Complejidad',
     span: 'col-span-1 md:col-span-2 row-span-2'
   },
   {
-    image: 'https://images.unsplash.com/photo-1584815682414-0e31818d4be1?auto=format&fit=crop&w=800&q=80',
+    image: `${import.meta.env.BASE_URL}images/consultorio_1.png`,
     title: 'Consultorios Modernos',
     span: 'col-span-1 row-span-1'
   },
@@ -274,7 +274,7 @@ export const pharmacyData = [
     category: 'Farmacia',
     price: 45000,
     rating: 4.9,
-    image: 'https://images.unsplash.com/photo-1623387641177-e8a49c0f4538?auto=format&fit=crop&w=400&q=80',
+    image: `${import.meta.env.BASE_URL}images/antipulgas_garrapatas.png`,
     description: 'Tratamiento mensual tópico para la prevención y tratamiento de infestaciones por pulgas y garrapatas.'
   },
   {
@@ -310,7 +310,7 @@ export const pharmacyData = [
     category: 'Farmacia',
     price: 25000,
     rating: 4.9,
-    image: 'https://images.unsplash.com/photo-1623387641177-e8a49c0f4538?auto=format&fit=crop&w=400&q=80',
+    image: `${import.meta.env.BASE_URL}images/desparasitante_interno.png`,
     description: 'Tabletas masticables de amplio espectro para el control de parásitos intestinales.'
   },
   {
@@ -339,21 +339,32 @@ export const blogData = [
     image: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80',
     category: 'Cuidado Preventivo',
     date: '12 Mar 2026',
-    title: 'La importancia de la salud dental en perros y gatos',
-    excerpt: 'El 80% de los perros y el 70% de los gatos muestran signos de enfermedad periodontal antes de los 3 años. Descubre cómo prevenirlo.',
+    title: 'Protocolos de Higiene Oral en Caninos y Felinos: Una Perspectiva Clínica',
+    excerpt: 'La enfermedad periodontal afecta al 80% de los caninos adultos. Conozca las implicaciones sistémicas y los protocolos de prevención basados en evidencia clínica.',
     content: `
-      <p>La salud dental de nuestras mascotas es a menudo pasada por alto, pero es fundamental para su bienestar general. Al igual que en los humanos, la acumulación de placa y sarro puede llevar a enfermedades periodontales graves.</p>
-      <h3>¿Por qué es tan importante?</h3>
-      <p>Las bacterias presentes en la boca no solo causan mal aliento y pérdida de dientes. Si la enfermedad periodontal avanza, estas bacterias pueden ingresar al torrente sanguíneo y afectar órganos vitales como el corazón, el hígado y los riñones.</p>
-      <h3>Señales de alerta</h3>
-      <ul>
-        <li>Mal aliento persistente (halitosis).</li>
-        <li>Encías rojas, inflamadas o sangrantes.</li>
-        <li>Dificultad para masticar o pérdida de apetito.</li>
-        <li>Dientes flojos o decolorados.</li>
+      <p class="mb-4">La salud oral en animales de compañía trasciende la estética; representa un pilar fundamental de la medicina preventiva contemporánea. Según la American Veterinary Dental College (AVDC), la enfermedad periodontal es la patología clínica más prevalente en pacientes adultos, con una incidencia que supera el 80% en caninos y el 70% en felinos mayores de tres años.</p>
+      
+      <h3 class="text-xl font-bold mt-6 mb-3">Fisiopatología y Riesgos Sistémicos</h3>
+      <p class="mb-4">La acumulación de biopelícula dental (placa) evoluciona hacia la formación de cálculos (sarro) mediante la mineralización salival. Este proceso desencadena una respuesta inflamatoria persistente que no solo compromete las estructuras de soporte dental, sino que facilita la translocación bacteriana. La evidencia científica sugiere una correlación directa entre la enfermedad periodontal avanzada y patologías en órganos distantes, incluyendo endocarditis bacteriana, glomerulonefritis y disfunción hepática.</p>
+      
+      <h3 class="text-xl font-bold mt-6 mb-3">Signos Clínicos de Alerta</h3>
+      <ul class="list-disc pl-6 mb-4 space-y-2">
+        <li><strong>Halitosis persistente:</strong> Indicador primario de proliferación bacteriana anaerobia.</li>
+        <li><strong>Gingivitis:</strong> Eritema e inflamación del margen gingival.</li>
+        <li><strong>Recesión gingival:</strong> Exposición de la furca y pérdida de inserción epitelial.</li>
+        <li><strong>Alteraciones conductuales:</strong> Hiporexia o reticencia a la manipulación oral debido al dolor crónico.</li>
       </ul>
-      <h3>¿Cómo prevenirlo?</h3>
-      <p>La prevención comienza en casa con el cepillado regular usando pasta dental específica para mascotas. Además, es vital programar limpiezas dentales profesionales (profilaxis) anuales con tu veterinario para remover el sarro bajo la línea de las encías.</p>
+      
+      <h3 class="text-xl font-bold mt-6 mb-3">Estrategias de Intervención</h3>
+      <p class="mb-4">El manejo exitoso requiere un enfoque dual: el cuidado domiciliario mediante el cepillado mecánico diario con dentífricos enzimáticos específicos y la profilaxis profesional bajo anestesia general. Esta última permite el curetaje subgingival y el pulido dental, procedimientos esenciales que no pueden replicarse de forma segura en pacientes despiertos.</p>
+      
+      <div class="mt-8 p-6 bg-stone-50 rounded-xl border border-stone-200">
+        <h4 class="text-sm font-bold uppercase tracking-wider text-stone-500 mb-3">Referencias Bibliográficas (Normas APA)</h4>
+        <p class="text-xs text-stone-600 italic">
+          American Veterinary Dental College. (2023). <i>Periodontal Disease in Dogs and Cats</i>. AVDC Resources. https://avdc.org/animal-owner-resources/<br>
+          Niemiec, B. A. (2019). <i>Veterinary Periodontology</i> (2nd ed.). John Wiley & Sons.
+        </p>
+      </div>
     `
   },
   {
@@ -361,18 +372,27 @@ export const blogData = [
     image: 'https://images.unsplash.com/photo-1505628346881-b72b27e84530?auto=format&fit=crop&w=800&q=80',
     category: 'Nutrición',
     date: '05 Mar 2026',
-    title: 'Dietas BARF vs. Concentrado: ¿Qué es mejor?',
-    excerpt: 'Analizamos los pros y contras de las diferentes opciones de alimentación para que tomes la mejor decisión para tu compañero.',
+    title: 'Análisis Comparativo entre Dietas Crudas (BARF) y Alimentos Extruidos: Evidencia y Seguridad',
+    excerpt: 'Evaluación científica de los modelos nutricionales actuales, analizando el equilibrio de macronutrientes y los riesgos microbiológicos asociados.',
     content: `
-      <p>La nutrición es uno de los temas más debatidos entre los dueños de mascotas. Hoy en día, las opciones van mucho más allá del tradicional concentrado (croquetas), siendo la dieta BARF (Biologically Appropriate Raw Food) una de las alternativas más populares.</p>
-      <h3>Dietas Comerciales (Concentrado)</h3>
-      <p><strong>Ventajas:</strong> Son convenientes, fáciles de almacenar, económicas y, si eliges una marca de alta calidad, están formuladas para ser nutricionalmente completas y balanceadas.</p>
-      <p><strong>Desventajas:</strong> Algunas marcas económicas contienen muchos rellenos (como maíz o trigo) y subproductos de baja calidad. Además, su bajo contenido de humedad puede ser un problema, especialmente para los gatos.</p>
-      <h3>Dieta BARF (Alimentos Crudos)</h3>
-      <p><strong>Ventajas:</strong> Mayor digestibilidad, heces más pequeñas y con menos olor, pelaje más brillante y mayor energía. Al ser rica en humedad, favorece la salud renal.</p>
-      <p><strong>Desventajas:</strong> Requiere mucho tiempo de preparación, espacio en el congelador y un estricto manejo higiénico para evitar contaminación por bacterias como Salmonella o E. coli. Además, es difícil lograr un balance nutricional perfecto sin la guía de un nutricionista veterinario.</p>
-      <h3>Conclusión</h3>
-      <p>No existe una dieta única perfecta para todas las mascotas. La mejor opción dependerá del estilo de vida de tu familia, tu presupuesto y las necesidades de salud específicas de tu perro o gato. Siempre consulta con tu veterinario antes de realizar un cambio drástico en su alimentación.</p>
+      <p class="mb-4">La nutrición veterinaria atraviesa una fase de escrutinio profundo debido a la emergencia de tendencias como la dieta BARF (Biologically Appropriate Raw Food). La elección entre alimentos procesados (extruidos) y dietas crudas implica una evaluación técnica de la biodisponibilidad de nutrientes y la seguridad alimentaria.</p>
+      
+      <h3 class="text-xl font-bold mt-6 mb-3">Alimentos Extruidos: Estándar de Oro en Balance</h3>
+      <p class="mb-4">Los alimentos comerciales de gama alta están formulados bajo los estándares de la AAFCO (Association of American Feed Control Officials). Su principal ventaja radica en la precisión nutricional, garantizando que cada ración contenga la proporción exacta de aminoácidos, ácidos grasos y minerales necesarios para la etapa de vida del paciente.</p>
+      
+      <h3 class="text-xl font-bold mt-6 mb-3">Dietas Crudas (BARF): Beneficios y Desafíos</h3>
+      <p class="mb-4">Los defensores de las dietas crudas reportan mejoras en la digestibilidad, reducción del volumen fecal y optimización del estado del pelaje. No obstante, la World Small Animal Veterinary Association (WSAVA) advierte sobre dos riesgos críticos: el desequilibrio nutricional (especialmente la relación Calcio:Fósforo) y la contaminación microbiológica por patógenos como <i>Salmonella spp.</i> y <i>Listeria monocytogenes</i>, que representan un riesgo zoonótico para los propietarios.</p>
+      
+      <h3 class="text-xl font-bold mt-6 mb-3">Consideraciones Clínicas</h3>
+      <p class="mb-4">No existe una solución universal. La prescripción dietética debe ser individualizada, considerando la edad, el nivel de actividad y las comorbilidades del paciente. En casos de transición a dietas naturales, es imperativo el seguimiento por un nutricionista veterinario certificado para evitar deficiencias subclínicas.</p>
+      
+      <div class="mt-8 p-6 bg-stone-50 rounded-xl border border-stone-200">
+        <h4 class="text-sm font-bold uppercase tracking-wider text-stone-500 mb-3">Referencias Bibliográficas (Normas APA)</h4>
+        <p class="text-xs text-stone-600 italic">
+          Freeman, L. M., et al. (2013). Current knowledge about the risks and benefits of raw meat-based diets for dogs and cats. <i>Journal of the American Veterinary Medical Association</i>, 243(11), 1549-1558.<br>
+          World Small Animal Veterinary Association. (2021). <i>Global Nutrition Guidelines</i>. WSAVA Executive Board.
+        </p>
+      </div>
     `
   },
   {
@@ -380,19 +400,27 @@ export const blogData = [
     image: 'https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&w=800&q=80',
     category: 'Comportamiento',
     date: '28 Feb 2026',
-    title: 'Cómo reducir el estrés de tu gato al visitar la clínica',
-    excerpt: 'Consejos prácticos desde el uso del guacal hasta feromonas para hacer que la visita al veterinario sea una experiencia positiva.',
+    title: 'Manejo Etológico del Paciente Felino: Estrategias para la Reducción del Estrés Clínico',
+    excerpt: 'La implementación de protocolos "Cat Friendly" es crucial para garantizar diagnósticos precisos y el bienestar emocional del gato durante la consulta.',
     content: `
-      <p>Para la mayoría de los gatos, la visita al veterinario comienza con el estrés de ser introducidos en un guacal, seguido de un viaje en auto y la llegada a un lugar lleno de olores y sonidos desconocidos. Aquí te dejamos algunos consejos para hacer este proceso más amigable.</p>
-      <h3>1. Familiarización con el guacal</h3>
-      <p>El guacal no debe aparecer solo cuando hay visita al veterinario. Déjalo abierto en casa, en un lugar tranquilo, con una manta suave y algunos premios o juguetes dentro. Tu gato debe verlo como un refugio seguro.</p>
-      <h3>2. Uso de feromonas</h3>
-      <p>Rocía feromonas faciales felinas sintéticas (como Feliway) en el guacal y en el auto unos 15 minutos antes del viaje. Esto ayuda a crear una sensación de familiaridad y calma.</p>
-      <h3>3. El viaje en auto</h3>
-      <p>Asegura el guacal con el cinturón de seguridad para evitar movimientos bruscos. Conduce con suavidad, mantén la música baja o pon música clásica, y evita olores fuertes en el vehículo.</p>
-      <h3>4. En la sala de espera</h3>
-      <p>Si es posible, mantén el guacal en alto (los gatos se sienten más seguros en las alturas) y cúbrelo parcialmente con una manta ligera para bloquear el contacto visual con otros animales, especialmente perros.</p>
-      <p>En Patitas Felices contamos con protocolos "Cat Friendly" para asegurar que la experiencia de tu felino sea lo menos estresante posible desde que cruza nuestra puerta.</p>
+      <p class="mb-4">Para la especie felina, el entorno clínico representa una fuente significativa de estrés agudo, lo que puede alterar parámetros fisiológicos (como la glucemia y la presión arterial) y dificultar el diagnóstico. El manejo etológico moderno busca mitigar estas respuestas mediante la modificación del entorno y técnicas de manipulación de bajo estrés.</p>
+      
+      <h3 class="text-xl font-bold mt-6 mb-3">1. El Guacal como Refugio Seguro</h3>
+      <p class="mb-4">La habituación previa es esencial. El transportador debe integrarse al mobiliario del hogar como un área de descanso permanente. El uso de feromonas faciales sintéticas (F3) aplicadas 15 minutos antes del traslado ha demostrado reducir significativamente los comportamientos de ansiedad durante el transporte.</p>
+      
+      <h3 class="text-xl font-bold mt-6 mb-3">2. Optimización del Entorno Clínico</h3>
+      <p class="mb-4">Los gatos se sienten vulnerables a nivel del suelo. En la sala de espera, los transportadores deben ubicarse en superficies elevadas. Asimismo, el contacto visual con caninos debe evitarse estrictamente mediante el uso de barreras físicas o salas de espera diferenciadas.</p>
+      
+      <h3 class="text-xl font-bold mt-6 mb-3">3. Protocolos de Manipulación</h3>
+      <p class="mb-4">La técnica del "menos es más" es fundamental. Se debe permitir que el gato explore el consultorio antes del examen físico y realizar la mayor parte de la evaluación dentro de la base del guacal si este es desmontable, minimizando la restricción física forzada.</p>
+      
+      <div class="mt-8 p-6 bg-stone-50 rounded-xl border border-stone-200">
+        <h4 class="text-sm font-bold uppercase tracking-wider text-stone-500 mb-3">Referencias Bibliográficas (Normas APA)</h4>
+        <p class="text-xs text-stone-600 italic">
+          American Association of Feline Practitioners. (2022). <i>Feline-Friendly Handling Guidelines</i>. Journal of Feline Medicine and Surgery.<br>
+          Ellis, S. L., et al. (2013). AAFP and ISFM Feline-Friendly Handling Guidelines. <i>Journal of Feline Medicine and Surgery</i>, 15(3), 163-178.
+        </p>
+      </div>
     `
   }
 ];

@@ -16,6 +16,12 @@ export default function BlogPost() {
   const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
   const [isPortalOpen, setIsPortalOpen] = useState(false);
 
+  useEffect(() => {
+    const handleOpenAppointment = () => setIsAppointmentOpen(true);
+    window.addEventListener('open-appointment-modal', handleOpenAppointment);
+    return () => window.removeEventListener('open-appointment-modal', handleOpenAppointment);
+  }, []);
+
   const post = blogData.find(p => p.id === id);
 
   // Find related articles based on category, excluding the current post

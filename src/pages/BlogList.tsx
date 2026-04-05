@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { blogData } from '../data';
@@ -13,6 +13,12 @@ import Chatbot from '../components/Chatbot';
 export default function BlogList() {
   const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
   const [isPortalOpen, setIsPortalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpenAppointment = () => setIsAppointmentOpen(true);
+    window.addEventListener('open-appointment-modal', handleOpenAppointment);
+    return () => window.removeEventListener('open-appointment-modal', handleOpenAppointment);
+  }, []);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Todos');
 

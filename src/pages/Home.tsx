@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
@@ -20,6 +20,12 @@ import Chatbot from '../components/Chatbot';
 export default function Home() {
   const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
   const [isPortalOpen, setIsPortalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpenAppointment = () => setIsAppointmentOpen(true);
+    window.addEventListener('open-appointment-modal', handleOpenAppointment);
+    return () => window.removeEventListener('open-appointment-modal', handleOpenAppointment);
+  }, []);
 
   return (
     <div className="bg-[#fafaf9] text-[#292524] font-sans selection:bg-teal-500 selection:text-white">
